@@ -10,7 +10,7 @@ import miniTwitter.demo.models.Photo;
 
 public interface PhotoRepository extends CrudRepository<Photo, Long>{
 
-	Photo findByImage(String name);
+	Photo findByPhotoId(String name);
 	
 	List<Photo> findByUser_Id(Long id);
 

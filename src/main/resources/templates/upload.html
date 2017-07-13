@@ -27,16 +27,21 @@
 	            <form action="/filter" >
 	            	<img th:src="${imageurl}" />
 	            	<input type="hidden" name ="imagename" th:value="${imagename}" />
-	            	<p>Filter your picture</p>
-	            	Width:<input type="text" name="width" value="100" /><br/>
-	            	Height:<input type="text" name="height" value="100" /><br/>
-	            	crop:<input type="radio" name="action" value="crop"/><br/>
+	            	<br />
+	            	<h2>Resize and Apply Filters!!!</h2>
+	            	<br />
+	            	Width:<input type="text" name="width" value="100" />
+	            	<br />
+	            	Height:<input type="text" name="height" value="100" />
+	            	<br />
+	            	Crop:<input type="radio" name="action" value="crop"/>
+	            	<br />
 	            	<select name="filter">
 					    <option value="sepia">Sepia</option>
 					    <option value="blur">Blur</option>
 					    <option value="blue" >Blue</option>
 					  </select>
-					  <br/>
+					  <br />
 	            	<input type="submit" value="Submit" />
 	            </form>
         	</div>

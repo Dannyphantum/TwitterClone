@@ -56,8 +56,7 @@ public class PhotoController {
 	        try {
 	            Map uploadResult =  cloudc.upload(file.getBytes(), ObjectUtils.asMap("resourcetype", "auto"));
 
-	            model.addAttribute("message",
-	                    "You successfully uploaded '" + file.getOriginalFilename() + "'");
+	            model.addAttribute("message", "You successfully uploaded '" + file.getOriginalFilename() + "'");
 	            model.addAttribute("imageurl", uploadResult.get("url"));
 	            String filename = uploadResult.get("public_id").toString() + "." + uploadResult.get("format").toString();
 	            
@@ -119,7 +118,15 @@ public class PhotoController {
 	    	model.addAttribute("user", user);
 	    	model.addAttribute("photos", pictures);
 	    	
-	    	return "gallery";
+	    	return "redirect: /newsfeed";
+	    }
+	    
+	    @RequestMapping("/like/{photoId}")
+	    public String likePic(@PathVariable("photoId") Long photoId, Principal principal, Model model){
+	    	Photo pic = photoRepository.findOne(photoId);
+	    	pic.setLiked(true);
+	    	photoRepository.save(pic);
+	    	return "newsfeed";
 	    }
 
 }

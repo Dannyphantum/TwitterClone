@@ -68,7 +68,7 @@
     	<li class="white" sec:authorize="isAuthenticated()"><a href="/me">Profile</a></li>
         <li class="white" sec:authorize="isAuthenticated()"><a href="/logout">Logout</a></li>
       
-      <li sec:authorize="isAuthenticated()" class="dropdown">
+     <!--   <li sec:authorize="isAuthenticated()" class="dropdown">
         <a href="#" class="dropdown-toggle" sec:authentication="name" data-toggle="dropdown"><b class="caret"></b></a>
         <ul class="dropdown-menu">
 	    	<li sec:authorize="isAuthenticated()"><a href="/follower" >Followers</a></li>

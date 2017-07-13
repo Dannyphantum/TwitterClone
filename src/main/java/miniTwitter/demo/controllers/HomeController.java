@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import miniTwitter.demo.models.Friendship;
+import miniTwitter.demo.models.Photo;
 import miniTwitter.demo.models.Post;
 import miniTwitter.demo.models.User;
 import miniTwitter.demo.repositories.FriendshipRepository;
+import miniTwitter.demo.repositories.PhotoRepository;
 import miniTwitter.demo.repositories.PostRepository;
 import miniTwitter.demo.repositories.UserRepository;
 import miniTwitter.demo.services.UserService;
@@ -43,6 +45,9 @@ public class HomeController {
     
     @Autowired
     private FriendshipRepository friendshipRepository;
+    
+    @Autowired
+    private PhotoRepository photoRepository;
 
     @RequestMapping("/")
     public String index(Model m){
@@ -189,7 +194,6 @@ public class HomeController {
     	
     	return "redirect:/allusers/me";
     }
-    
     
     
     public UserValidator getUserValidator() {

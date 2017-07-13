@@ -23,9 +23,13 @@ public class Photo {
     @ManyToOne
     @JoinColumn(name="userId")
     private User user;
+    
     @Basic
     private Date createdAt = new Date();
-
+    
+    @Basic
+    private Boolean liked;
+    
     public Long getPhotoId() {
 		return photoId;
 	}
@@ -85,5 +89,15 @@ public class Photo {
     public void setUpload(StoredFile file) {
         this.image = file.getPreloadedFile();
     }
+
+
+	public Boolean isLiked() {
+		return liked;
+	}
+
+
+	public void setLiked(Boolean liked) {
+		this.liked = liked;
+	}
     
 }

@@ -57,7 +57,12 @@
 						<div th:utext="${photo.image}"></div>
 							<form th:action="@{/delete/{photoId}(photoId=${photo.photoId})}" method= "post">
 								 	<button type="submit" class="btn btn-default">Delete</button>
+							</form>	 	
+								 	
+							<form th:action="@{/like/{photoId}(photoId=${photo.photoId})}" method="post">
+								 	<button type="submit" class="btn btn-default">Like</button>
 							</form>
+							
 					</th:block>
 					
 				</ul>
