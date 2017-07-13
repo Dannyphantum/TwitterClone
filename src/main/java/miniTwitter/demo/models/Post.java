@@ -25,6 +25,8 @@ public class Post {
    
    
 	private Date postedDate;
+	
+	private Boolean liked;
 
 
 	public String getContent() {
@@ -59,6 +61,16 @@ public class Post {
 
 	public long getPost_id() {
 		return post_id;
+	}
+
+
+	public Boolean isLiked() {
+		return liked;
+	}
+
+
+	public void setLiked(Boolean liked) {
+		this.liked = liked;
 	}
 
 }

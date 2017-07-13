@@ -58,9 +58,9 @@ public class PhotoController {
 
 	            model.addAttribute("message", "You successfully uploaded '" + file.getOriginalFilename() + "'");
 	            model.addAttribute("imageurl", uploadResult.get("url"));
+	            
 	            String filename = uploadResult.get("public_id").toString() + "." + uploadResult.get("format").toString();
-	            
-	            
+	           
 	            User user = userRepository.findByEmail(p.getName());
 	            
 	            Photo photo = new Photo();
@@ -70,7 +70,6 @@ public class PhotoController {
 	            photo.setUser(user);
 	            photoRepository.save(photo);
 	           
-	            
 	            model.addAttribute("imagename", filename);
 	            
 	        } catch (IOException e){
@@ -121,12 +120,12 @@ public class PhotoController {
 	    	return "redirect: /newsfeed";
 	    }
 	    
-	    @RequestMapping("/like/{photoId}")
+	    @RequestMapping("/likepic/{photoId}")
 	    public String likePic(@PathVariable("photoId") Long photoId, Principal principal, Model model){
 	    	Photo pic = photoRepository.findOne(photoId);
 	    	pic.setLiked(true);
 	    	photoRepository.save(pic);
-	    	return "newsfeed";
+	    	return "redirect: /newsfeed";
 	    }
 
 }

@@ -30,6 +30,9 @@ public class Photo {
     @Basic
     private Boolean liked;
     
+    @Basic 
+    private String filter;
+    
     public Long getPhotoId() {
 		return photoId;
 	}
@@ -98,6 +101,16 @@ public class Photo {
 
 	public void setLiked(Boolean liked) {
 		this.liked = liked;
+	}
+
+
+	public String getFilter() {
+		return filter;
+	}
+
+
+	public void setFilter(String filter) {
+		this.filter = filter;
 	}
     
 }

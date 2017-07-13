@@ -95,4 +95,12 @@ public class PostController {
     	return "tweet";
     }
     
+    @RequestMapping("/likepost/{id}")
+    public String likePost(@PathVariable("id") Long id, Principal principal, Model model){
+    	Post post = postRepository.findOne(id);
+    	post.setLiked(true);
+    	postRepository.save(post);
+    	return "redirect: /newsfeed";
+    }
+    
     }
