@@ -42,11 +42,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/", "/register", "/allusers", "/allposts", "/assets/**").permitAll()
+                .antMatchers("/","/**", "/register", "/allusers","/profilepic","/newsfeed", "/allposts", "/assets/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().loginPage("/login")
-                .defaultSuccessUrl("/newsfeed")
+                //.defaultSuccessUrl("/**")
                 .permitAll()
                 .and()
                 .logout()

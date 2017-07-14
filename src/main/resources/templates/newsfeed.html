@@ -39,6 +39,7 @@
 		    <br />
 		    <div class ="col-sm-4 col-md-8">
 				<ul>
+					<!-- <div th: each="photo : ${photos}"> -->
 					<div th:each="post : ${allPosts}">
 						<div class="content">
 							<a th:href="@{/post/{id}(id = ${post.postedBy.id})}" th:text="${post.postedBy.firstName + ' ' + post.postedBy.lastName}"></a>
@@ -51,6 +52,7 @@
 								</form>
 						</div>
 					</div>
+					
 					
 					<th:block th:each="photo : ${photos}">
 						<a th:href="@{/post/{id}(id = ${photo.user.id})}" th:text="${photo.user.firstName + ' ' + photo.user.lastName}"></a>

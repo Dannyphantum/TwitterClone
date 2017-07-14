@@ -100,7 +100,7 @@ public class PostController {
     	Post post = postRepository.findOne(id);
     	post.setLiked(true);
     	postRepository.save(post);
-    	return "redirect: /newsfeed";
+    	return "newsfeed";
     }
     
     }

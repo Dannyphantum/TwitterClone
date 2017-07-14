@@ -92,21 +92,22 @@ public class PhotoController {
 	    	 
 	    	 return "upload";
 	    }
-	    
-	    @RequestMapping(path="/getphotos")
-	    public String getGallery(Principal p, Model model){
+	   
+	    @RequestMapping("/blue")
+	    public String blue(String imagename, int width, int height, String action,String filter, Model model){
 	    	
-	    	User user = userRepository.findByEmail(p.getName());
-	    	
-	    	List<Photo> pictures = photoRepository.findByUser_Id(user.getId());
-	    	
-	    	model.addAttribute("user", user);
-	    	model.addAttribute("photos", pictures);
-	  
-	    	return "gallery";
+	    	if(width==0 ){
+	    		width=150;
+	    	}
+	    	if(height==0){
+	    		height=150;
+	    	}
+	    	 model.addAttribute("sizedimageurl", cloudc.createUrl(imagename, width, height, action, filter));
+	    	 
+	    	 return "upload";
 	    }
 	    
-	    @RequestMapping(path="/delete/{photoId}")
+	    @RequestMapping("/delete/{photoId}")
 	    public String deletePhoto(@PathVariable Long photoId, Principal p, Model model){
 	    	
 	    	User user = userRepository.findByEmail(p.getName());
@@ -117,15 +118,16 @@ public class PhotoController {
 	    	model.addAttribute("user", user);
 	    	model.addAttribute("photos", pictures);
 	    	
-	    	return "redirect: /newsfeed";
+	    	return "newsfeed";
 	    }
 	    
 	    @RequestMapping("/likepic/{photoId}")
 	    public String likePic(@PathVariable("photoId") Long photoId, Principal principal, Model model){
 	    	Photo pic = photoRepository.findOne(photoId);
+	    	//System.out.println("It worked!!");
 	    	pic.setLiked(true);
 	    	photoRepository.save(pic);
-	    	return "redirect: /newsfeed";
+	    	return "newsfeed";
 	    }
 
 }

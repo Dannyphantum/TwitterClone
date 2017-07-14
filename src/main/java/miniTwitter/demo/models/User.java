@@ -27,9 +27,11 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
     
-
 	@Column (name = "username")
     private String username;
+	
+	@Column (name = "profilepic")
+	private String profilepic;
 
     @Column(name = "enabled")
     private boolean enabled;
@@ -113,5 +115,13 @@ public class User {
     public void setRoles(Collection<Role> roles) {
         this.roles = roles;
     }
+
+	public String getProfilepic() {
+		return profilepic;
+	}
+
+	public void setProfilepic(String profilepic) {
+		this.profilepic = profilepic;
+	}
 
 }
